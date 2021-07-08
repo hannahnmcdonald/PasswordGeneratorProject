@@ -1,69 +1,56 @@
+var generateBtn = document.querySelector("#generate");
 
-// PROMPTS for password questions:
-function.getCharacterOptions('generate').addEventListener("click") {
-  var length = parseInt(
-    prompt('How many characters would you like your password to be?')
-    );
-    // Fixed .isNAN format per MDN https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number/isNaN
-  if (number.isNAN(length)) {
-    alert("Password length must be numerical");
-    return null;
-  }if(length<8 || length>128) {
-    alert("Password length must be between 8 and 128 characters.");
-    return null;
-  }
+// CHARACTER CODES using ASCII Codes
+var uppercasecharcodes = arrayFromLowToHigh(65, 90)
+var lowercasecharcodes = arrayFromLowToHigh(97, 122)
+var numbercharcodes = arrayFromLowToHigh(48, 57)
+var specialcharcodes = arrayFromLowToHigh(33, 47).concat(
+  arrayFromLowToHigh(58, 64)
+  ).concat(arrayFromLowToHigh(91, 96)
+  ).concat(arrayFromLowToHigh(123, 126)
+  )
+var passwordlength = "";
 
-  // IF none are chosen, password generator has no options to pull from, and program ends
-  if (!includelower && !includenumbers && !includeupper && !includespecial) {
-  alert('You must choose atleast one of the options!');
+
+function displayPassword() {
+  var password = generatePassword();
+  var passwordCharacters = document.querySelector('#password');
+
+  passwordCharacters.value = password;
+}
+
+function generatePassword() {
+  userPassword = "";
+  passwordCharacters = "";
+
+  let passwordlength = prompt("Select your desired password length");
+
+  if(passwordlength<8 || passwordlength>128) {
+    // IF input for password length is not long enough, user gets an alert
+  alert("Password length must be between 8 and 128 characters.");
   return null;
-  }else{
-  // CONFIRM messages asking for additional options
-  var includespecial = confirm('Would you like to include special characters?');
-  var includeupper = confirm('Would you like to include uppercase characters?');
-  var includelower = confirm('Would you like to include lowercase characters?');
-  var includenumbers= confirm('Would you like to include numbers?');
   }
-  
-  // CHARACTER CODES using ASCII Codes
-  var uppercasecharcodes = arrayFromLowToHigh(65, 90)
-  var lowercasecharcodes = arrayFromLowToHigh(97, 122)
-  var numbercharcodes = arrayFromLowToHigh(48, 57)
-  var specialcharcodes = arrayFromLowToHigh(33, 47).concat(
-    arrayFromLowToHigh(58, 64)
-    ).concat(arrayFromLowToHigh(91, 96)
-    ).concat(arrayFromLowToHigh(123, 126)
-    )
+    var includespecial = confirm('Would you like to include special characters?');
+    var includeupper = confirm('Would you like to include uppercase characters?');
+    var includelower = confirm('Would you like to include lowercase characters?');
+    var includenumbers= confirm('Would you like to include numbers?');
+
+    // IF no options are selected, user gets an error alert
+    if (!includelower && !includenumbers && !includeupper && !includespecial) {
+    alert('You must choose atleast one of the options!');
+    return null;
+  }
+    // MERGE section where all options are compiled
+  if (includespecial) {
+    passwordCharacters += lowercasecharcodes;
+  }if (includeupper) {
+    passwordCharacters += uppercasecharcodes;
+  }if (includelower) {
+    passwordCharacters += lowercasecharcodes;
+  }if (includenumbers) {
+    passwordCharacters += numbercharcodes;
+  }for (var i = 0; i <passwordlength; i++) {
+    userPassword += passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+  }return userPassword;
 }
-
-button.addEventListener("click"){
-
-}
-
-// var passwordCharacterOptions= [];
-// if (CharacterOptions.includespecial) {
-//   passwordCharacterOptions = passwordCharacterOptions.concat(specialcharcodes);
-// }if (CharacterOptions.includenumbers) {
-//   passwordCharacterOptions = passwordCharacterOptions.concat(numbercharcodes);
-// }if (CharacterOptions.includelower) {
-//   passwordCharacterOptions = passwordCharacterOptions.concat(lowercasecharcodes);
-// }if (CharacterOptions.includeupper) {
-//   passwordCharacterOptions = passwordCharacterOptions.concat(uppercasecharcodes);
-// }
-
-
-
-// var generateBtn = document.querySelector("#generate");
-
-
-// // Write password to the #password input
-// function writePassword() {
-//   var password = generatePassword();
-//   var passwordText = document.querySelector("#password");
-
-//   passwordText.value = password;
-
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click",displayPassword);
