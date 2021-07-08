@@ -30,6 +30,11 @@ function generatePassword() {
   alert("Password length must be between 8 and 128 characters.");
   return null;
   }
+  if(Number.isNan(passwordlength)) {
+    // IF input for password length is not numerical, user gets an alert
+  alert("Password length must be numerical");
+  return null;
+  }
     var includespecial = confirm('Would you like to include special characters?');
     var includeupper = confirm('Would you like to include uppercase characters?');
     var includelower = confirm('Would you like to include lowercase characters?');
