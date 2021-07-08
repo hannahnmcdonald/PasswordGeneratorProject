@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+/* NOTE: Implemented color assignment variables */
+:root {
+  --background: #394e63;
+  --secondary: hsl(0, 0%, 100%);
+  --accent:  #92094e;
+  --accent2: #c0c7cf;
+}
 html,
 body,
 .wrapper {
@@ -13,8 +20,9 @@ body,
 }
 
 body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
+  font-family: 'Orbitron', sans-serif;
+  background-color: var(--background);
+  text-align: center;
 }
 
 .wrapper {
@@ -27,15 +35,17 @@ header {
   text-align: center;
   padding: 20px;
   padding-top: 0px;
-  color: hsl(206, 17%, 28%);
+  color: var(--secondary);
+  font-size: larger;
+  font-family: 'Orbitron', sans-serif;
 }
 
 .card {
-  background-color: hsl(0, 0%, 100%);
+  background-color: var(--secondary);
   border-radius: 5px;
   border-width: 1px;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px 0px;
-  color: hsl(206, 17%, 28%);
+  color: var(--accent);
   font-size: 18px;
   margin: 0 auto;
   max-width: 800px;
@@ -46,12 +56,16 @@ header {
   content: " ";
   display: block;
   width: 100%;
-  background: #e7e9eb;
+  background: var(--secondary);
   height: 2px;
 }
 
 .card-body {
   min-height: 100px;
+}
+
+textarea {
+  height: 30px;
 }
 
 .card-footer {
@@ -62,7 +76,7 @@ header {
   content: " ";
   display: block;
   width: 100%;
-  background: #e7e9eb;
+  background: var(--secondary);
   height: 2px;
 }
 
@@ -72,13 +86,18 @@ header {
   clear: both;
 }
 
+.length-input {
+  width: 3rem;
+}
+
 .btn {
   border: none;
-  background-color: hsl(360, 91%, 36%);
+  background-color: var(--accent);
   border-radius: 25px;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 6px 0px rgba(0, 0, 0, 0.2) 0px 1px 1px
     0px;
-  color: hsl(0, 0%, 100%);
+  color: var(--secondary);
+  font-family: 'Orbitron', sans-serif;
   display: inline-block;
   font-size: 22px;
   line-height: 22px;
@@ -86,6 +105,10 @@ header {
   padding: 14px 34px;
   text-align: center;
   cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #92094e33;
 }
 
 button[disabled] {
@@ -112,7 +135,7 @@ button[disabled] {
   text-align: center;
   margin-top: 10px;
   margin-bottom: 10px;
-  border: 2px dashed #c0c7cf;
+  border: 2px dashed var(--accent2);
   border-radius: 6px;
   resize: none;
   overflow: hidden;
