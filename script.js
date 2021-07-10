@@ -2,35 +2,30 @@ var generateBtn = document.querySelector("#generate");
 
 function writePassword() {
   var password = generatePassword();
-  var passwordCharacters = document.querySelector('#password');
+  var passwordText = document.querySelector('#password');
 
-  passwordCharacters.value = password;
+  passwordText.value = password;
 }
 
 function generatePassword() {
-  password = "";
+  userpassword = "";
   passwordCharacters = "";
 
   let passwordlength = prompt("Select your desired password length");
 
-  if(Number.isNaN(passwordlength)) {
-    // IF input for password length is not numerical, user gets an alert
-  alert("Password length must be numerical");
+  if (passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength)) {
+  // IF input for password length is not long enough or is not numerical, user gets an alert
+  alert("Password length must be between 8 and 128 characters and numerical.");
   return null;
   }
-
-  if(passwordlength<8 || passwordlength>128) {
-    // IF input for password length is not long enough, user gets an alert
-  alert("Password length must be between 8 and 128 characters.");
-  return null;
-  }
-
+  // CONFIRM statements for password characters
     var includespecial = confirm('Would you like to include special characters?');
     var includeupper = confirm('Would you like to include uppercase characters?');
     var includelower = confirm('Would you like to include lowercase characters?');
     var includenumbers= confirm('Would you like to include numbers?');
 
-    // CHARACTER CODES using ASCII Codes
+  // CHARACTER CODES using ASCII Codes
+
     var uppercasecharcodes = arrayFromLowToHigh(65, 90);
     var lowercasecharcodes = arrayFromLowToHigh(97, 122);
     var numbercharcodes = arrayFromLowToHigh(48, 57);
@@ -57,10 +52,16 @@ function generatePassword() {
   }if (includenumbers) {
     passwordCharacters += numbercharcodes;
   }
-  for (var i = 0; i <passwordlength; i++) {
-    passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+
+  //  TEST: console.log(lowercasecharcodes, specialcharcodes, numbercharcodes, uppercasecharcodes);
+  var userpasswordto =[];
+  for (var i = 0; i < passwordlength; i++) {
+      userpassword += passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
+      userpassword.push(String.fromCharCode(passwordCharacters));
+
+    // TEST: console.log (i)
   }
-  return password;
+  return userpassword;
 }
 generateBtn.addEventListener("click",writePassword);
 
