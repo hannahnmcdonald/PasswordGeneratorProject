@@ -9,15 +9,16 @@ function writePassword() {
 
 function generatePassword() {
   userpassword = "";
-  passwordCharacters = "";
+  passwordCharacters = [];
 
   let passwordlength = prompt("Select your desired password length");
 
   if (passwordlength < 8 || passwordlength > 128 || isNaN(passwordlength)) {
-  // IF input for password length is not long enough or is not numerical, user gets an alert
+    // IF input for password length is not long enough or is not numerical, user gets an alert
   alert("Password length must be between 8 and 128 characters and numerical.");
   return null;
   }
+  
   // CONFIRM statements for password characters
     var includespecial = confirm('Would you like to include special characters?');
     var includeupper = confirm('Would you like to include uppercase characters?');
@@ -44,22 +45,19 @@ function generatePassword() {
   }
     // MERGE section where all options are compiled
   if (includespecial) {
-    passwordCharacters += specialcharcodes;
+    passwordCharacters= passwordCharacters.concat(specialcharcodes);
   }if (includeupper) {
-    passwordCharacters += uppercasecharcodes;
+    passwordCharacters = passwordCharacters.concat(uppercasecharcodes);
   }if (includelower) {
-    passwordCharacters += lowercasecharcodes;
+    passwordCharacters = passwordCharacters.concat(lowercasecharcodes);
   }if (includenumbers) {
-    passwordCharacters += numbercharcodes;
+    passwordCharacters = passwordCharacters.concat(numbercharcodes);
   }
 
   //  TEST: console.log(lowercasecharcodes, specialcharcodes, numbercharcodes, uppercasecharcodes);
-  var userpasswordto =[];
+
   for (var i = 0; i < passwordlength; i++) {
       userpassword += passwordCharacters[Math.floor(Math.random() * passwordCharacters.length)];
-      userpassword.push(String.fromCharCode(passwordCharacters));
-
-    // TEST: console.log (i)
   }
   return userpassword;
 }
@@ -69,7 +67,7 @@ generateBtn.addEventListener("click",writePassword);
 function arrayFromLowToHigh(low, high) {
   const array = []
   for (let i = low; i <= high; i++) {
-    array.push(i)
+    array.push(String.fromCharCode(i));
   }
   return array
 }
