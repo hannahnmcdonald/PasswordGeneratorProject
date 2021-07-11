@@ -5,7 +5,7 @@ This project is an intuitive application for password generation using Javascrip
 This project implements the use of ASCII Character Codes like listed [here.](https://theasciicode.com.ar/)
 
 Usage: This application is responsive to multiple screen sizes such as smartphones and tablets, as well as desktop.
-![Site Mobile Screenshot](/PasswordGeneratorMobileScreenshot.png)
+![Site Mobile Screenshot](/images/PasswordGeneratorMobileScreenshot.png)
 
 Installation: N/A
 
