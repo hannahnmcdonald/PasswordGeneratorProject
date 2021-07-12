@@ -11,6 +11,6 @@ Usage: This application is responsive to multiple screen sizes such as smartphon
 
 Installation: N/A
 
-Credits: Web Dev Simplified and Traversy Media on Youtube, my tutor with Trilogy Education, who is very knowlegeable in Javascript, and my Dad who has been a software developer longer than I've been alive and always a phone call away when I need him to explain a concept to me. And coffee, lots and lots of coffee.
+Credits: Web Dev Simplified and Traversy Media on Youtube for great explanations and tutorials, my tutor with Trilogy Education, who is very knowlegeable in Javascript, and my Dad who has been a software developer longer than I've been alive and always a phone call away when I need him to explain a concept to me. And coffee, lots and lots of coffee.
 
 Built with: Gitbash, Github, VS Code
