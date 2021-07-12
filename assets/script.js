@@ -72,3 +72,11 @@ function arrayFromLowToHigh(low, high) {
   }
   return array
 }
+const copy = document.getElementById("copy");
+
+copy.onclick= function () {
+  // NOTE: selects text to copy
+  password.select();
+  //NOTE: copies password to clipboard
+  document.execCommand("copy");
+}
