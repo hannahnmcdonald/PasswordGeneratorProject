@@ -11,6 +11,6 @@ This project implements the use of ASCII Character Codes like listed [here.](htt
 
 <ins>Installation:</ins> N/A
 
-<ins>Credits:</ins> Web Dev Simplified and Traversy Media on Youtube for great explanations and tutorials, my tutor with Trilogy Education, who is very knowlegeable in Javascript, and my Dad who has been a software developer longer than I've been alive and always a phone call away when I need him to explain a concept to me. And coffee, lots and lots of coffee.
+<ins>Credits:</ins> Coffee, lots and lots of coffee. And thanks dad for letting me call you and always having the time to explain javascript concepts to me and tell me when I'm overthinking things :)
 
 <ins>Built with:</ins> Gitbash, Github, VS Code
